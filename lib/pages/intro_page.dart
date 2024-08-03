@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -12,16 +14,33 @@ class _HomePageState extends State<IntroPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: Column(
-        children: [
-          //logo
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            //logo
+            FaIcon(
+              CupertinoIcons.shopping_cart,
+              size: 73,
+              color: Theme.of(context).colorScheme.inversePrimary,
+            ),
 
-          //title
+            const SizedBox(
+              height: 25,
+            ),
+            //title
+            const Text(
+              "Best Shopping",
+            ),
 
-          //subtitle
+            //subtitle
+            const Text(
+              "Best Quality Products",
+            ),
 
-          //button
-        ],
+            //button
+          ],
+        ),
       ),
     );
   }
