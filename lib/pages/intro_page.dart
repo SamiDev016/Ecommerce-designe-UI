@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:to_learn_app_yt/components/my_button.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -31,14 +32,28 @@ class _HomePageState extends State<IntroPage> {
             //title
             const Text(
               "Best Shopping",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold
+              ),
             ),
 
             //subtitle
-            const Text(
+            Text(
               "Best Quality Products",
+              style: TextStyle(
+                fontSize: 18,
+                color: Theme.of(context).colorScheme.inversePrimary
+              ),
             ),
 
+            const SizedBox(height: 20,),
+
             //button
+            MyButton(
+              onTap: () => Navigator.of(context).pushNamed("shop_page"),
+              child: const Icon(CupertinoIcons.arrow_right_square),
+            )
           ],
         ),
       ),

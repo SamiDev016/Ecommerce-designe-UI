@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_learn_app_yt/pages/intro_page.dart';
+import 'package:to_learn_app_yt/pages/shop_page.dart';
 import 'package:to_learn_app_yt/theme/light_theme.dart';
 
 void main() {
@@ -14,6 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: lightMode,
+      routes: {
+        "/intro_page":(context) => const IntroPage(),
+        "shop_page":(context) => const ShopPage(),
+      },
       home: const IntroPage(),
     );
   }
