@@ -14,32 +14,36 @@ class MyDrawer extends StatelessWidget {
         children: [
           Column(
             children: [
-              
-          //logo
-          DrawerHeader(
-            child: Center(
-              child: Icon(
-                CupertinoIcons.shopping_cart,
-                size: 73,
-                color: Theme.of(context).colorScheme.inversePrimary,
+              //logo
+              DrawerHeader(
+                child: Center(
+                  child: Icon(
+                    CupertinoIcons.shopping_cart,
+                    size: 73,
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                  ),
+                ),
               ),
-            ),
-          ),
-          //shop tile
+              //shop tile
 
-          const SizedBox(height: 25,),
+              const SizedBox(
+                height: 25,
+              ),
 
-          MyListTile(
-            icon: CupertinoIcons.home,
-            text: "Shop",
-            onTap: (){},
-          ),
-          //cart tile
-          MyListTile(
-            icon: Icons.shopping_cart_outlined,
-            text: "Cart",
-            onTap: (){},
-          ),
+              MyListTile(
+                icon: CupertinoIcons.home,
+                text: "Shop",
+                onTap: () => Navigator.of(context).pop(),
+              ),
+              //cart tile
+              MyListTile(
+                icon: Icons.shopping_cart_outlined,
+                text: "Cart",
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pushNamed("cart_page");
+                },
+              ),
             ],
           ),
 
@@ -49,7 +53,7 @@ class MyDrawer extends StatelessWidget {
             child: MyListTile(
               icon: Icons.close,
               text: "Exit",
-              onTap: (){},
+              onTap: () => Navigator.pushNamedAndRemoveUntil(context, "/intro_page", (route) => false),
             ),
           ),
         ],
