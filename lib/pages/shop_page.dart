@@ -11,29 +11,41 @@ class ShopPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final products = context.watch<Shop>().shop;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: const Text(
-          "Shop Page",
-          style: TextStyle(color: Colors.white),
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          title: const Text(
+            "Shop Page",
+            style: TextStyle(color: Colors.white),
+          ),
+          elevation: 20,
+          centerTitle: true,
+          foregroundColor: Colors.white,
         ),
-        elevation: 20,
-        centerTitle: true,
-        foregroundColor: Colors.white,
-      ),
-      drawer: const MyDrawer(),
-      body: SizedBox(
-        height: 500,
-        child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.all(15),
-          itemCount: products.length,
-          itemBuilder: (context,index){
-            final product = products[index];
-            return MyProductTile(product: product);
-          },
-        ),
-      ),
-    );
+        drawer: const MyDrawer(),
+        body: ListView(
+          children: [
+            Center(
+                child: Text(
+              "Choose Your Product Wisely",
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.inversePrimary,
+                fontSize: 19,
+                fontWeight: FontWeight.bold,
+              ),
+            )),
+            SizedBox(
+              height: 600,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.all(15),
+                itemCount: products.length,
+                itemBuilder: (context, index) {
+                  final product = products[index];
+                  return MyProductTile(product: product);
+                },
+              ),
+            ),
+          ],
+        ));
   }
 }
