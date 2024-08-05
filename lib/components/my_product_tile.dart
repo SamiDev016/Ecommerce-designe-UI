@@ -36,7 +36,7 @@ class MyProductTile extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10)),
                   padding: const EdgeInsets.all(25),
                   width: double.infinity,
-                  child: const Icon(Icons.home_repair_service),
+                  child: Image.asset(product.imagePath),
                 ),
               ),
 

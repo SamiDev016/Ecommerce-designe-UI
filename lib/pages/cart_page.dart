@@ -13,6 +13,23 @@ class CartPage extends StatelessWidget {
       context: context,
       builder: (context) => AlertDialog(
         content: Text("PAYMENT YESSSSSSSSSSSSS"),
+        contentTextStyle: TextStyle(
+          color: Colors.white,
+        ),
+        actions: [
+          MaterialButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text("Close"),
+          ),
+          MaterialButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text("Pay"),
+          ),
+        ],
       ),
     );
   }
@@ -33,25 +50,27 @@ class CartPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: carts.length,
-              itemBuilder: (context, index) {
-                final cart = carts[index];
-                return ListTile(
-                  title: Text(cart.name),
-                  subtitle: Text(cart.price.toStringAsFixed(2)),
-                  trailing: IconButton(
-                    onPressed: () {
-                      context.read<Shop>().removeProductFromCart(cart);
+          carts.isEmpty
+              ? Center(child: Text("OK",style: TextStyle(fontSize: 30),))
+              : Expanded(
+                  child: ListView.builder(
+                    itemCount: carts.length,
+                    itemBuilder: (context, index) {
+                      final cart = carts[index];
+                      return ListTile(
+                        title: Text(cart.name),
+                        subtitle: Text(cart.price.toStringAsFixed(2)),
+                        trailing: IconButton(
+                          onPressed: () {
+                            context.read<Shop>().removeProductFromCart(cart);
+                          },
+                          icon: const Icon(CupertinoIcons.trash),
+                        ),
+                      );
                     },
-                    icon: const Icon(CupertinoIcons.trash),
                   ),
-                );
-              },
-            ),
-          ),
-          MyButton(
+                ),
+                carts.isEmpty ? Text("") : MyButton(
             onTap: () => payButton(context),
             child: Text("Pay Now"),
           )

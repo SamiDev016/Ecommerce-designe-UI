@@ -8,25 +8,25 @@ class Shop extends ChangeNotifier{
     Product(
       name: "Earpods",
       decs: "Samsung earpods best quality and best price in the world",
-   //   imagePath: "imagePath",
+      imagePath: "assets/earpods.jpg",
       price: 3500,
     ),
     Product(
       name: "Realme 9i",
       decs: "Best phone with low price like always",
-   //   imagePath: "imagePath",
+      imagePath: "assets/realme9i.jpg",
       price: 46000,
     ),
     Product(
       name: "Bottle of Water",
       decs: "You want water to drink , iknow you don't have water in ur country so TAKE IT OR LEAVE IT",
-   //   imagePath: "imagePath",
+      imagePath: "assets/water.jpg",
       price: 210,
     ),
     Product(
       name: "Phone case",
       decs: "Hell yeah the best phone case on the world",
-   //   imagePath: "imagePath",
+      imagePath: "assets/phonecase.jpg",
       price: 750,
     ),
   ];
